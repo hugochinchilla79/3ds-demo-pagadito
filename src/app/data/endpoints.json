@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "url": "https://api.pagadito.com/v1/",
+        "name": "Pagadito SV (api.pagadito.com)"
+    },
+    {
+        "id": 1,
+        "url": "https://sandbox-api.pagadito.com/v1/",
+        "name": "Pagadito Sandbox SV (sandbox-api.pagadito.com)"
+    },
+    {
+        "id": 1,
+        "url": "https://gt-api.pagadito.com/v1/",
+        "name": "Pagadito GT (gt-api.pagadito.com)"
+    }
+]

@@ -1,0 +1,27 @@
+[
+  {
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "johndoe@domain.com",
+    "billingAddress": {
+      "city": "San Salvador",
+      "state": "San Salvador",
+      "zip": "000000",
+      "countryId": "222",
+      "line1": "San Salvador",
+      "phone": "+503 76701968"
+    },
+    "transaction": {
+      "merchantTransactionId": "TRS-1214",
+      "currency": "USD",
+      "transactionDetails": {
+        "quantity": 1,
+        "description": "Test Product",
+        "price": 10.0
+      }
+    },
+    "browserInfo": {
+      "customerIp": "179.51.3.105"
+    }
+  }
+]
