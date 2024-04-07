@@ -1,14 +1,6 @@
 "use client";
-
-import card from "@material-tailwind/react/theme/components/card";
 import React from "react";
-
-interface CardData {
-  cardNumber: string;
-  expirationDate: string;
-  cvn: string;
-  name: string;
-}
+import { CardData } from "../interfaces/TransactionInterfaces";
 
 const Card: React.FC<{ cardData: CardData }> = ({ cardData }) => {
   return (

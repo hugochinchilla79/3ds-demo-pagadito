@@ -13,22 +13,27 @@ const ThreeDSecureIFrame = (props: any) => {
 
       const handleMessage = (event) => {
         if (event.origin === "https://centinelapistag.cardinalcommerce.com") {
-          console.log("Received message from Cardinal...");
-          console.log("Centinel Origin is correct");
-          console.log(event.data);
-          console.log("Received message from Cardinal...");
+
+        try {
+          let rsp = JSON.parse(event.data);
+          if (rsp.MessageType === "profile.completed") {
+            console.log("Profile completed");
+            props.onProfilerCompleted();
+          }
+        } catch (error) {
+          
+        }
+         
         }
       };
 
-      // Add listener for message event
       window.addEventListener("message", handleMessage);
 
-      // Clean up by removing the event listener when the component unmounts
       return () => {
         window.removeEventListener("message", handleMessage);
       };
     }
-  }, []); // Empty dependency array means this effect will only run once, when the component mounts
+  }, []);
 
   return (
     <div>

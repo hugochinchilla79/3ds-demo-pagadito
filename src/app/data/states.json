@@ -1,0 +1,51 @@
+[
+  {
+    "stateId": 1,
+    "countryId": "222",
+    "name": "San Salvador",
+    "value": "San Salvador"
+  },
+  {
+    "stateId": 2,
+    "countryId": "340",
+    "name": "Tegucigalpa",
+    "value": "Tegucigalpa"
+  },
+  {
+    "stateId": 3,
+    "countryId": "320",
+    "name": "Guatemala City",
+    "value": "Guatemala City"
+  },
+  {
+    "stateId": 4,
+    "countryId": "591",
+    "name": "Panama City",
+    "value": "Panama City"
+  },
+  {
+    "stateId": 5,
+    "countryId": "840",
+    "name": "California",
+    "value": "CA"
+  },
+  {
+    "stateId": 6,
+    "countryId": "840",
+    "name": "Texas",
+    "value": "TX"
+  },
+  {
+    "stateId": 7,
+    "countryId": "170",
+    "name": "Bogotá",
+    "value": "Bogotá"
+  },
+  {
+    "stateId": 8,
+    "countryId": "032",
+    "name": "Buenos Aires",
+    "value": "Buenos Aires"
+  }
+]
+ 

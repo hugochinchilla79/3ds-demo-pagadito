@@ -2,21 +2,18 @@
 import React, { useState } from "react";
 import ExpirationDate from "./ExpirationDate";
 import CardSelector from "./CardSelector";
+import Loading from "./Loading";
+import { ConfigurationParams } from "../interfaces/TransactionInterfaces";
 
 import dotenv from "dotenv";
 import axios from "axios";
-
-interface ConfigurationParams {
-  uid: string;
-  wsk: string;
-  url: string;
-}
 
 dotenv.config();
 
 interface CardData {
   onCardData: (data: any) => void;
-  onRetrieveThreeDSecureParams: (data: any) => void
+  onRetrieveThreeDSecureParams: (data: any) => void,
+  onRetrieveSetupInformation: (data: any) => void,
   configurationParams: ConfigurationParams;
 }
 
@@ -27,6 +24,7 @@ const cards = require("../data/cards.json");
 const CardForm: React.FC<CardData> = ({
   onCardData,
   onRetrieveThreeDSecureParams,
+  onRetrieveSetupInformation,
   configurationParams
 }) => {
   const [name, setName] = useState("");
@@ -61,8 +59,15 @@ const CardForm: React.FC<CardData> = ({
           enabled: true,
         };
 
+        let setupInformation = {
+          referenceId: response.data.referenceId,
+          setup_request_id: response.data.request_id,
+        };
+
         console.log(data);
         onRetrieveThreeDSecureParams(data);
+        onRetrieveSetupInformation(setupInformation);
+
         setIsSubmitting(false);
       })
       .catch((error: any) => {
@@ -185,6 +190,7 @@ const CardForm: React.FC<CardData> = ({
               className="border border-gray-300 rounded px-4 py-2 w-full"
             />
           </div>
+          {!isSubmitting && (
           <button
             type="submit"
             className="bg-blue-500 text-white px-4 py-2 rounded"
@@ -193,6 +199,11 @@ const CardForm: React.FC<CardData> = ({
           >
             Submit
           </button>
+          )}
+
+          {isSubmitting && (
+            <Loading></Loading>
+          )}
         </form>
       </div>
     </div>

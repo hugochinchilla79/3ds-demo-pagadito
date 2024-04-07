@@ -1,0 +1,44 @@
+[
+  {
+    "id": "222",
+    "name": "El Salvador",
+    "isoNum": "220",
+    "prefix": "SV"
+  },
+  {
+    "id": "340",
+    "name": "Honduras",
+    "isoNum": "340",
+    "prefix": "HN"
+  },
+  {
+    "id": "320",
+    "name": "Guatemala",
+    "isoNum": "320",
+    "prefix": "GT"
+  },
+  {
+    "id": "591",
+    "name": "Panama",
+    "isoNum": "591",
+    "prefix": "PA"
+  },
+  {
+    "id": "840",
+    "name": "United States",
+    "isoNum": "840",
+    "prefix": "US"
+  },
+  {
+    "id": "170",
+    "name": "Colombia",
+    "isoNum": "170",
+    "prefix": "CO"
+  },
+  {
+    "id": "032",
+    "name": "Argentina",
+    "isoNum": "032",
+    "prefix": "AR"
+  }
+]
