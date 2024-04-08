@@ -45,7 +45,7 @@ export default async function handler(req, res) {
 
         const queryParams = new URLSearchParams({
             authorization: customer_reply.authorization,
-            amount: customer_reply.amount,
+            amount: customer_reply.totalAmount,
             description: "Payment Successful 3DSecure",
             merchantTransactionId: customer_reply.merchantTransactionId,
             totalAmount: customer_reply.totalAmount,
