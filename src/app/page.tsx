@@ -101,7 +101,7 @@ export default function Home() {
 
   return (
     <div>
-      <Header />
+      <Header title="Demo 3DSecure"/>
       <h1 className="text-center mt-20 mb-4 font-sans text-2xl">
         <br />
         <a
