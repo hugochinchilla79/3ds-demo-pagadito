@@ -24,7 +24,7 @@ const SuccessValidation = () => {
 
     return (
         <div className="container justify-center mx-auto">
-            <TransactionInformation title="Transaction Success With 3DSecure Pagadito" transactionData={transactionData} infoPagadito={infoPagadito} />
+            <TransactionInformation title="Transaction Success With 3DSecure" transactionData={transactionData} infoPagadito={infoPagadito} />
         </div>
     );
 };

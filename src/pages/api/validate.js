@@ -42,15 +42,11 @@ export default async function handler(req, res) {
         // Assuming successful processing, redirect to a success page with query parameters
 
         let customer_reply = response.data.customer_reply;
-        let amount =
-          customerInformation.transaction.transactionDetails[0].amount;
-        let description =
-          customerInformation.transaction.transactionDetails[0].description;
 
         const queryParams = new URLSearchParams({
             authorization: customer_reply.authorization,
-            amount: amount,
-            description: description,
+            amount: customer_reply.amount,
+            description: "Payment Successful 3DSecure",
             merchantTransactionId: customer_reply.merchantTransactionId,
             totalAmount: customer_reply.totalAmount,
             payment_token: customer_reply.payment_token,
