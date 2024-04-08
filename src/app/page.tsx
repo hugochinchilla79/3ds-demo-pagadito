@@ -9,6 +9,10 @@ import Configuration from "./components/Configuration";
 import TransactionInformation from "./components/TransactionInformation";
 import UserInformationForm from "./components/UserInformationForm";
 import SetupIframe from "./components/SetupIframe";
+import Header from "./components/Header";
+import Cart from "./components/Cart";
+import { TransactionDetail } from "./interfaces/TransactionInterfaces";
+import Checkout from "./components/Checkout";
 
 export default function Home() {
   const [cardData, setCardData] = useState({
@@ -27,7 +31,7 @@ export default function Home() {
 
   const handleSetupInformation = (data: any) => {
     setSetupInformation(data);
-  }
+  };
 
   const [threeDSecureParams, setThreeDSecureParams] = useState({
     action: "",
@@ -40,6 +44,10 @@ export default function Home() {
     amount: "",
     description: "",
   });
+
+  const [transactionDetails, setTransactionDetails] = useState<
+    TransactionDetail[]
+  >([]);
 
   const [configurationParams, setConfigurationParams] = useState({
     uid: "",
@@ -58,18 +66,21 @@ export default function Home() {
 
   const [transactionDataSetted, setTransactionDataSetted] = useState(false);
 
-  const handleTransactionData = (data: any) => {
-    if (data.amount === "" || data.description === "") {
-      alert("Please fill all the fields");
-      return;
-    }
+  const handleTransactionData = () => {
     setTransactionDataSetted(true);
-    setTransactionData(data);
+  };
+
+  const handleUpdateTransactionDetails = (data: TransactionDetail[]) => {
+    setTransactionDetails(data);
   };
 
   const handlePagaditoSuccess = (data: any) => {
+    setTransactionData({
+      amount: data.totalAmount,
+      description: "Payment for products",
+    });
     setInfoPagadito(data);
-  }
+  };
 
   const handleCardData = (data: any) => {
     setCardData(data);
@@ -86,73 +97,94 @@ export default function Home() {
   const handleRequiredStepUpForm = (data: any) => {
     setStepUpRequired(true);
     setStepUpData(data);
-  }
+  };
 
   return (
     <div>
-      <h1 className="text-center mt-4 mb-4 font-sans text-2xl">
-        <strong>Demo 3DSecure Pagadito</strong>
+      <Header />
+      <h1 className="text-center mt-20 mb-4 font-sans text-2xl">
+        <br />
+        <a
+          onClick={() => (location.href = "")}
+          className="text-blue-500 hover:underline cursor-pointer"
+        >
+          Reset Demo
+        </a>
       </h1>
-      <div className="grid grid-cols-5 p-4 xs:grid-cols-1 xs:grid-cols-1">
-        <div className="col-span-1 mb-4">
+      <div className="grid p-4 grid-cols-1 2xl:grid-cols-5 xl:grid-cols-5 md:grid-cols-5 sm:grid-cols-1 h-screen">
+        <div className="col-span-1 m-4">
           <Configuration
             onConfigurationParams={handleConfigurationParams}
           ></Configuration>
         </div>
-        <div className="col-span-3">
+        <div className="col-span-2 m-4">
           {!transactionDataSetted && (
-            <TransactionForm onSubmit={handleTransactionData} />
+            <div>
+              {/*<TransactionForm onSubmit={handleTransactionData} />*/}
+              <Cart
+                onUpdateTransactionDetails={handleUpdateTransactionDetails}
+              />
+            </div>
           )}
 
-          <div className="mt-4 mb-4">
-            {transactionDataSetted && !isProfilerCompleted && (
-              <CardForm
-                onCardData={handleCardData}
-                onRetrieveThreeDSecureParams={handleThreeDSecureParams}
-                configurationParams={configurationParams}
-                onRetrieveSetupInformation={handleSetupInformation}
-              />
-            )}
+          {transactionDataSetted && !isProfilerCompleted && (
+            <CardForm
+              onCardData={handleCardData}
+              onRetrieveThreeDSecureParams={handleThreeDSecureParams}
+              configurationParams={configurationParams}
+              onRetrieveSetupInformation={handleSetupInformation}
+            />
+          )}
 
-            {threeDSecureParams.enabled && (
-              <div>
-                <ThreeDSecureIFrame
-                  url={threeDSecureParams.url}
-                  action={threeDSecureParams.action}
-                  jwt={threeDSecureParams.jwt}
-                  onProfilerCompleted={() => {
-                    setIsProfilerCompleted(true);
-                  }}
-                ></ThreeDSecureIFrame>
-              </div>
-            )}
-          </div>
+          {threeDSecureParams.enabled && (
+            <div>
+              <ThreeDSecureIFrame
+                url={threeDSecureParams.url}
+                action={threeDSecureParams.action}
+                jwt={threeDSecureParams.jwt}
+                onProfilerCompleted={() => {
+                  setIsProfilerCompleted(true);
+                }}
+              ></ThreeDSecureIFrame>
+            </div>
+          )}
 
-          {(isProfilerCompleted && infoPagadito == null) && !stepUpData.enabled && (
-            <div className="mt-4 mb-4">
+          {isProfilerCompleted &&
+            infoPagadito == null &&
+            !stepUpData.enabled && (
               <UserInformationForm
                 cardData={cardData}
-                transactionData={transactionData}
+                transactionData={transactionDetails}
                 setupInformation={setupInformation}
                 configuration={configurationParams}
                 onPagaditoTransactionSuccess={handlePagaditoSuccess}
                 onStepUpFormRequired={handleRequiredStepUpForm}
               ></UserInformationForm>
-            </div>
-          )}
-          
-          {stepUpData.enabled && (
-            <SetupIframe action={stepUpData.action} jwt={stepUpData.jwt} md={stepUpData.md} />
-          )
-}
-        </div>
-        <div className="col-span-1">
-          <TransactionInformation
-            title="Transaction Information"
-            transactionData={transactionData}
-            infoPagadito={infoPagadito}
-          ></TransactionInformation>
+            )}
 
+          {stepUpData.enabled && (
+            <SetupIframe
+              action={stepUpData.action}
+              jwt={stepUpData.jwt}
+              md={stepUpData.md}
+            />
+          )}
+
+          {infoPagadito && (
+            <TransactionInformation
+              infoPagadito={infoPagadito}
+              transactionData={transactionData}
+              title="Transaction Information"
+            />
+          )}
+        </div>
+        <div className="col-span-2">
+          <div className="mt-4 mb-4 mx-auto">
+            <Checkout
+              onSubmit={handleTransactionData}
+              transactionDetails={transactionDetails}
+            />
+          </div>
           <div className="mt-4 mx-auto">
             {transactionDataSetted && <Card cardData={cardData} />}
           </div>

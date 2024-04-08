@@ -4,8 +4,8 @@ import { CardData } from "../interfaces/TransactionInterfaces";
 
 const Card: React.FC<{ cardData: CardData }> = ({ cardData }) => {
   return (
-    <div className="space-y-16">
-      <div className="w-96 h-56 m-auto bg-red-100 rounded-xl relative text-white shadow-2xl transition-transform transform hover:scale-110">
+    <div className="">
+      <div className="w-full h-56 bg-red-100 rounded-xl text-white shadow-2xl transition-transform transform hover:scale-110">
         {cardData.cardNumber.startsWith("4") ? (
           <img
             className="relative object-cover w-full h-full rounded-xl"

@@ -129,9 +129,9 @@ const CardForm: React.FC<CardData> = ({
   };
 
   return (
-    <div className="container mx-auto flex justify-center">
-      <div className="p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 w-1/2">
-        <h2 className="text-2xl font-bold mt-4 mb-4 rounded-lg dark:text-white">
+    <div className="mx-auto">
+      <div className="p-4 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 w-full">
+        <h2 className="text-xl font-bold mt-4 mb-4 rounded-lg dark:text-white">
           Card Details
         </h2>
 

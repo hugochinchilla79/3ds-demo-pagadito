@@ -56,8 +56,8 @@ const Configuration: React.FC<ConfigurationData> = ({
 
   return (
     <div className="mx-auto">
-      <div className="p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-        <h2 className="text-2xl font-bold mt-4 mb-4 rounded-lg dark:text-white">
+      <div className="p-3 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <h2 className="text-xl font-bold mt-4 mb-4 rounded-lg dark:text-white">
           Configuration
         </h2>
         <form onSubmit={handleSubmit} className="rounded-lg">
@@ -69,7 +69,7 @@ const Configuration: React.FC<ConfigurationData> = ({
               id="url"
               value={url}
               onChange={handleUrlChange}
-              className="border border-gray-300 rounded px-4 py-2 w-full"
+              className="border border-gray-300 rounded text-xs px-4 py-2 w-full h-8"
             >
               <option value="">Select URL</option>
               {endpoints.map((endpoint: any, index: number) => (
@@ -88,7 +88,7 @@ const Configuration: React.FC<ConfigurationData> = ({
               id="uid"
               value={uid}
               onChange={handleUidChange}
-              className="border border-gray-300 rounded px-4 py-2 w-full"
+              className="border border-gray-300 rounded px-4 py-2 w-full text-xs h-8"
             />
           </div>
           <div>
@@ -100,7 +100,7 @@ const Configuration: React.FC<ConfigurationData> = ({
               id="wsk"
               value={wsk}
               onChange={handleWskChange}
-              className="border border-gray-300 rounded px-4 py-2 w-full"
+              className="border border-gray-300 rounded text-xs px-4 py-2 w-full h-8"
             />
           </div>
 
@@ -108,7 +108,7 @@ const Configuration: React.FC<ConfigurationData> = ({
             <div className="col-span-1">
               <button
                 type="submit"
-                className="bg-blue-500 text-white px-4 py-2 rounded mt-4"
+                className="bg-blue-500 text-white px-4 py-2 rounded mt-4 text-xs"
               >
                 Save credentials
               </button>
@@ -117,7 +117,7 @@ const Configuration: React.FC<ConfigurationData> = ({
             <div className="col-span-1 text-right">
               <button
               type="button"
-              className="bg-gray-500 text-white px-4 py-2 rounded mt-4"
+              className="bg-gray-500 text-white px-4 py-2 rounded mt-4 text-xs"
               onClick={resetForm}
               >
                 Reset
@@ -126,9 +126,9 @@ const Configuration: React.FC<ConfigurationData> = ({
           </div>
 
           {isConfigurationSetted ? (
-            <div className="mt-4 text-green-500">Credentials setted!</div>
+            <div className="mt-4 text-xs text-green-500">Credentials setted!</div>
           ) : (
-            <div className="mt-4 text-red-500">Credentials not setted</div>
+            <div className="mt-4 text-xs text-red-500">Credentials not setted</div>
           )}
         </form>
       </div>

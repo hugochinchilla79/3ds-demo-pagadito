@@ -15,8 +15,8 @@ const ThreeDSecureIFrame = (props: any) => {
   }, []);
 
   return (
-    <div className="container mx-auto flex justify-center">
-      <div className="p-6 bg-white border border-gray-200 rounded-lg shadow w-1/2 text-center">
+    <div className="mx-auto">
+      <div className="p-4 bg-white border border-gray-200 rounded-lg shadow w-full text-center">
       <form
         action={props.action}
         ref={formRef}
@@ -30,6 +30,7 @@ const ThreeDSecureIFrame = (props: any) => {
         name="stepUpIframe"
         height="800"
         width="400"
+        className="mx-auto"
       ></iframe>
     </div>
     </div>

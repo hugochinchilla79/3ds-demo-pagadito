@@ -1,0 +1,24 @@
+[
+    {
+      "index": 1,
+      "price": 65.00,
+      "quantity": 0,
+      "tag": "product-1",
+      "description": "Zelda Breath of the Wild"
+    },
+    {
+      "index": 2,
+      "price": 65.00,
+      "quantity": 0,
+      "tag": "product-2",
+      "description": "Super Mario Odyssey"
+    },
+    {   
+      "index": 3,
+      "price": 65.00,
+      "quantity": 0,
+      "tag": "product-3",
+      "description": "Metroid Dread"
+    }
+  ]
+  

@@ -17,7 +17,7 @@
 }
 
 body {
-  background-color: rgb(170, 168, 168);
+  background: linear-gradient(to bottom, #28327d, black);
 }
 
 @layer utilities {

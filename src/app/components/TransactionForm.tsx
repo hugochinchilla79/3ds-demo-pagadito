@@ -37,8 +37,8 @@ const TransactionForm: React.FC<TransactionData> = ({ onSubmit }) => {
   };
 
   return (
-    <div className="container mx-auto flex justify-center">
-      <div className="p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 w-1/2">
+    <div className="flex mx-auto justify-center">
+      <div className="p-4 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 w-full">
         <h1 className="text-xl font-semibold dark:text-white">
           Transaction Form
         </h1>

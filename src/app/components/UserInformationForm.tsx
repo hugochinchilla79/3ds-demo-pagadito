@@ -12,7 +12,7 @@ import Loading from "./Loading";
 
 const UserInformationForm: React.FC<{
   cardData: CardData;
-  transactionData: any;
+  transactionData: TransactionDetail[];
   setupInformation: any;
   configuration: any;
   onPagaditoTransactionSuccess: any;
@@ -54,18 +54,12 @@ const UserInformationForm: React.FC<{
       billingAddress: billingAddress,
     };
 
-    let transactionDetail: TransactionDetail = {
-      amount: transactionData.amount,
-      quantity: 1,
-      description: transactionData.description,
-    };
-
     let userInformationData: UserInformationData = {
       card: card,
       transaction: {
         merchantTransactionId: "TRS-" + Math.floor(Math.random() * 1000),
         currencyId: "USD",
-        transactionDetails: [transactionDetail],
+        transactionDetails: transactionData,
       },
       browserInfo: {
         deviceFingerprintID: "123456478998",
@@ -114,8 +108,8 @@ const UserInformationForm: React.FC<{
   };
 
   return (
-    <div className="container mx-auto flex justify-center">
-      <div className="p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 w-1/2">
+    <div className="mx-auto">
+      <div className="p-4 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 w-full">
         <h1 className="text-xl font-semibold dark:text-white">
           User Information Form
         </h1>
@@ -130,7 +124,7 @@ const UserInformationForm: React.FC<{
               id="name"
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
-              className="border border-gray-300 rounded px-4 py-2 w-full"
+              className="border border-gray-300 rounded px-4 py-2 w-full h-8 text-xs"
             />
           </div>
           <div className="mb-4">
@@ -142,7 +136,7 @@ const UserInformationForm: React.FC<{
               id="name"
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
-              className="border border-gray-300 rounded px-4 py-2 w-full"
+              className="border border-gray-300 rounded px-4 py-2 w-full h-8 text-xs"
             />
           </div>
           <div className="mb-4">
@@ -154,7 +148,7 @@ const UserInformationForm: React.FC<{
               id="name"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="border border-gray-300 rounded px-4 py-2 w-full"
+              className="border border-gray-300 rounded px-4 py-2 w-full h-8 text-xs"
             />
           </div>
 
@@ -166,7 +160,7 @@ const UserInformationForm: React.FC<{
             {!isSubmitting && (
               <button
                 type="submit"
-                className="bg-blue-500 text-white px-4 py-2 rounded-md mt-4"
+                className="bg-blue-500 text-white px-4 py-2 rounded-md mt-4 h-8 text-xs"
                 onClick={handleSubmit}
               >
                 Submit

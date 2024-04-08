@@ -136,7 +136,7 @@ const BillingAddressForm: React.FC<BillingAddressData> = ({
         <select
           value={country}
           onChange={handleCountryChange}
-          className="border border-gray-300 rounded px-4 py-2 w-full"
+          className="border border-gray-300 rounded px-4 py-2 w-full h-8 text-xs"
         >
           {countries.map((country: any) => (
             <option key={country.isoNum} value={country.id}>
@@ -151,7 +151,7 @@ const BillingAddressForm: React.FC<BillingAddressData> = ({
           State
         </label>
         <select
-          className="border border-gray-300 rounded px-4 py-2 w-full"
+          className="border border-gray-300 rounded px-4 py-2 w-full h-8 text-xs"
           value={state}
           onChange={handleState}
         >
@@ -170,7 +170,7 @@ const BillingAddressForm: React.FC<BillingAddressData> = ({
         <input
           type="text"
           id="name"
-          className="border border-gray-300 rounded px-4 py-2 w-full"
+          className="border border-gray-300 rounded px-4 py-2 w-full h-8 text-xs"
           onChange={handleCity}
           value={city}
         />
@@ -183,7 +183,7 @@ const BillingAddressForm: React.FC<BillingAddressData> = ({
         <input
           type="text"
           id="name"
-          className="border border-gray-300 rounded px-4 py-2 w-full"
+          className="border border-gray-300 rounded px-4 py-2 w-full h-8 text-xs"
           onChange={handleZip}
           value={zip}
         />
@@ -196,7 +196,7 @@ const BillingAddressForm: React.FC<BillingAddressData> = ({
         <input
           type="text"
           id="name"
-          className="border border-gray-300 rounded px-4 py-2 w-full"
+          className="border border-gray-300 rounded px-4 py-2 w-full h-8 text-xs"
           onChange={handleLine1}
           value={line1}
         />
@@ -209,7 +209,7 @@ const BillingAddressForm: React.FC<BillingAddressData> = ({
         <input
           type="text"
           id="name"
-          className="border border-gray-300 rounded px-4 py-2 w-full"
+          className="border border-gray-300 rounded px-4 py-2 w-full h-8 text-xs"
           onChange={handlePhone}
           value={phone}
         />
