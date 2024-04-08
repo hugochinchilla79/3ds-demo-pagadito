@@ -10,7 +10,7 @@ export default async function handler(req, res) {
   const password = configuration.wsk;
 
   // Set CORS headers
-  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.setHeader("Access-Control-Allow-Origin", process.env.NEXT_PUBLIC_API_DEMO_BASE_URL);
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Authorization, Content-Type");
   res.setHeader("Access-Control-Allow-Credentials", "true");

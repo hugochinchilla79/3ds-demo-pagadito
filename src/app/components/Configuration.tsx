@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import Link from "next/link";
 
-const endpoints = require("../data/endpoints.json");
-
 interface ConfigurationData {
   onConfigurationParams: (data: any) => void;
+  endpoints: any;
 }
 
 const Configuration: React.FC<ConfigurationData> = ({
   onConfigurationParams,
+  endpoints
 }) => {
   const [url, setUrl] = useState(endpoints[0].url);
   const [uid, setUid] = useState(process.env.NEXT_PUBLIC_API_UID);

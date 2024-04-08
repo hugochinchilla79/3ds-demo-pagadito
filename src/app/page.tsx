@@ -14,6 +14,8 @@ import Cart from "./components/Cart";
 import { TransactionDetail } from "./interfaces/TransactionInterfaces";
 import Checkout from "./components/Checkout";
 
+const endpoints = require("./data/endpoints.json");
+
 export default function Home() {
   const [cardData, setCardData] = useState({
     cardNumber: "",
@@ -114,6 +116,7 @@ export default function Home() {
       <div className="grid p-4 grid-cols-1 2xl:grid-cols-5 xl:grid-cols-5 md:grid-cols-5 sm:grid-cols-1 h-screen">
         <div className="col-span-1 m-4">
           <Configuration
+            endpoints={endpoints}
             onConfigurationParams={handleConfigurationParams}
           ></Configuration>
         </div>
@@ -181,6 +184,7 @@ export default function Home() {
         <div className="col-span-2">
           <div className="mt-4 mb-4 mx-auto">
             <Checkout
+              type="tokenization"
               onSubmit={handleTransactionData}
               transactionDetails={transactionDetails}
             />

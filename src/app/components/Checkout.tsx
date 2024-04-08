@@ -3,11 +3,13 @@ import React from "react";
 type CartProps = {
   transactionDetails: TransactionDetail[];
   onSubmit: () => void;
+  type: string;
 };
 
 import { TransactionDetail } from "../interfaces/TransactionInterfaces";
+import Loading from "./Loading";
 
-const Checkout: React.FC<CartProps> = ({ transactionDetails, onSubmit }) => {
+const Checkout: React.FC<CartProps> = ({ transactionDetails, onSubmit, type }) => {
   const [isSubmitted, setIsSubmitted] = React.useState(false);
 
   const handleSubmit = () => {
@@ -78,6 +80,11 @@ const Checkout: React.FC<CartProps> = ({ transactionDetails, onSubmit }) => {
               <strong>PAY</strong>
             </button>
           )}
+
+          { type == "redirect" && isSubmitted && (
+            <Loading/>
+          )}
+
         </div>
       </div>
     </div>
