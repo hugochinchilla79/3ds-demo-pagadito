@@ -6,7 +6,7 @@ import https from "https"; // Import the 'https' module
 export default async function handler(req, res) {
   console.log(req.body);
   const { card, configuration } = req.body;
-  const endpoint = `${configuration.url}/setup-payer`;
+  const endpoint = `${configuration.url}setup-payer`;
   const username = configuration.uid;
   const password = configuration.wsk;
 
