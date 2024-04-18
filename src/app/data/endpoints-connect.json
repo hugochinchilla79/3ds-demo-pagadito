@@ -2,11 +2,13 @@
     {
         "id": 1,
         "url": "https://connect.pagadito.com/api/v2/",
-        "name": "Pagadito Connect Production (https://connect.pagadito.com)"
+        "name": "Pagadito Connect Production (https://connect.pagadito.com)",
+        "environment": "production"
     },
     {
         "id": 2,
         "url": "https://sandbox-connect.pagadito.com/api/v2/",
-        "name": "Pagadito Connect Sandbox (https://sandbox-connect.pagadito.com)"
+        "name": "Pagadito Connect Sandbox (https://sandbox-connect.pagadito.com)",
+        "environment": "sandbox"
     }
 ]

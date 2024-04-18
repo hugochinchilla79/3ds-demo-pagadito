@@ -15,6 +15,7 @@ export default function ConnectDemo() {
     uid: "",
     wsk: "",
     url: "",
+    env: "",
   });
 
   const [transactionDetails, setTransactionDetails] = useState<

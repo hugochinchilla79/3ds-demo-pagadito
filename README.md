@@ -1,5 +1,3 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ## Getting Started
 
 First, run the development server:
@@ -16,21 +14,28 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Setting the environment variables
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+For your convenience, you can set the UID, WSK an other variables in the .env file (recommended)
 
-## Learn More
+```
+NEXT_PUBLIC_API_PAGADITO_BASE_URL="https://sandbox-api.pagadito.com/v1/"
+#SANDBOX
+#NEXT_PUBLIC_API_WSK="wsk"
+#NEXT_PUBLIC_API_UID="uid"
+NEXT_PUBLIC_API_SETUP_3DS="setup-payer"
+NEXT_PUBLIC_API_CUSTOMER="customer"
+NEXT_PUBLIC_API_DEMO_BASE_URL="http://localhost:3000"
+NEXT_PUBLIC_API_ENV="sandbox"
+```
 
-To learn more about Next.js, take a look at the following resources:
+Also, you need to set NEXT_PUBLIC_API_DEMO_BASE_URL to not have trouble with CORS, so if you run the demo in another port other than 3000 you MUST change this value.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Changing params or configuration
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+You can change certain data on the demo to change the prices, countries, product names, even states
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+* src/app/data/cards.json - This contains the card demo data
+* src/app/data/countries.json - This contains the countries list
+* src/app/data/states.json - This contains the states list
+* src/app/data/products.json - This contains the product details, you can add more if you want
