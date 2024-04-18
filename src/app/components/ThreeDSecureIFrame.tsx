@@ -3,6 +3,11 @@
 import iframe from "../styles/iframe.module.css";
 import React, { useEffect, useRef } from "react";
 
+const endpointEnvironments = {
+  "sandbox": "https://centinelapistag.cardinalcommerce.com",
+  "production": "https://centinelapi.cardinalcommerce.com"
+}
+
 const ThreeDSecureIFrame = (props: any) => {
   const formRef = useRef(null);
 
@@ -12,7 +17,7 @@ const ThreeDSecureIFrame = (props: any) => {
       formRef.current.submit();
 
       const handleMessage = (event) => {
-        if (event.origin === "https://centinelapistag.cardinalcommerce.com") {
+        if (event.origin === endpointEnvironments[props.env]) {
 
         try {
           let rsp = JSON.parse(event.data);

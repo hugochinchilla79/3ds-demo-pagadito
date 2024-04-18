@@ -13,15 +13,23 @@ const Configuration: React.FC<ConfigurationData> = ({
   const [url, setUrl] = useState(endpoints[0].url);
   const [uid, setUid] = useState(process.env.NEXT_PUBLIC_API_UID);
   const [wsk, setWsk] = useState(process.env.NEXT_PUBLIC_API_WSK,);
+  const [env, setEnv] = useState(process.env.NEXT_PUBLIC_API_ENV);
+  const [selectedEndpoint, setSelectedEndpoint] = useState(endpoints[0].id);
+
   const [configurationParams, setConfigurationParams] = useState({
     url: "",
     uid: "",
     wsk: "",
+    env: ""
   });
   const [isConfigurationSetted, setIsConfigurationSetted] = useState(false);
 
   const handleUrlChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setUrl(event.target.value);
+    setSelectedEndpoint(event.target.value);
+    let endpoint = endpoints.find((endpoint: any) => endpoint.id == event.target.value);
+    console.log(endpoint);
+    setUrl(endpoint.url);
+    setEnv(endpoint.env);
   };
 
   const handleUidChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -41,8 +49,8 @@ const Configuration: React.FC<ConfigurationData> = ({
     }
 
     setIsConfigurationSetted(true);
-    setConfigurationParams({ url, uid, wsk });
-    onConfigurationParams({ url, uid, wsk });
+    setConfigurationParams({ url, uid, wsk, env });
+    onConfigurationParams({ url, uid, wsk, env });
   };
 
 
@@ -67,13 +75,13 @@ const Configuration: React.FC<ConfigurationData> = ({
             </label>
             <select
               id="url"
-              value={url}
+              value={selectedEndpoint}
               onChange={handleUrlChange}
               className="border border-gray-300 rounded text-xs px-4 py-2 w-full h-8"
             >
               <option value="">Select URL</option>
               {endpoints.map((endpoint: any, index: number) => (
-                <option key={index} value={endpoint.url}>
+                <option key={index} value={endpoint.id}>
                   {endpoint.name}
                 </option>
               ))}

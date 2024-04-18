@@ -55,6 +55,7 @@ export default function Home() {
     uid: "",
     wsk: "",
     url: "",
+    env: "",
   });
 
   const [infoPagadito, setInfoPagadito] = useState(null);
@@ -145,6 +146,7 @@ export default function Home() {
                 url={threeDSecureParams.url}
                 action={threeDSecureParams.action}
                 jwt={threeDSecureParams.jwt}
+                env={configurationParams.env}
                 onProfilerCompleted={() => {
                   setIsProfilerCompleted(true);
                 }}

@@ -40,7 +40,7 @@ const TransactionInformation: React.FC<{
           <div className="flex flex-col">
             <div className="flex flex-col">
               <label htmlFor="amount" className="block mb-2 dark:text-white">
-                Autorización:
+                Authorization:
               </label>
               <strong className="dark:text-white">
                 {infoPagadito.authorization}
