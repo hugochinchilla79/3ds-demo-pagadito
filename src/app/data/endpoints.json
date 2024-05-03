@@ -13,8 +13,8 @@
     },
     {
         "id": 3,
-        "url": "https://gt-api.pagadito.com/v1/",
+        "url": "http://gt-api.pagadito.com/v1/",
         "name": "Pagadito API GT (gt-api.pagadito.com)",
-        "environment": "production"
+        "environment": "sandbox"
     }
 ]

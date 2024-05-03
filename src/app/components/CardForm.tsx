@@ -65,6 +65,7 @@ const CardForm: React.FC<CardData> = ({
         };
 
         console.log(data);
+        console.log(setupInformation);
         onRetrieveThreeDSecureParams(data);
         onRetrieveSetupInformation(setupInformation);
 

@@ -17,6 +17,9 @@ const ThreeDSecureIFrame = (props: any) => {
       formRef.current.submit();
 
       const handleMessage = (event) => {
+        console.log(event.origin);
+        console.log(endpointEnvironments[props.env]);
+        console.log(props.env);
         if (event.origin === endpointEnvironments[props.env]) {
 
         try {

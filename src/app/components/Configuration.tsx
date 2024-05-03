@@ -29,7 +29,7 @@ const Configuration: React.FC<ConfigurationData> = ({
     let endpoint = endpoints.find((endpoint: any) => endpoint.id == event.target.value);
     console.log(endpoint);
     setUrl(endpoint.url);
-    setEnv(endpoint.env);
+    setEnv(endpoint.environment);
   };
 
   const handleUidChange = (event: React.ChangeEvent<HTMLInputElement>) => {

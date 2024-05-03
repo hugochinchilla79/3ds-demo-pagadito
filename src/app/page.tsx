@@ -94,6 +94,7 @@ export default function Home() {
   };
 
   const handleConfigurationParams = (data: any) => {
+    console.log(data);
     setConfigurationParams(data);
   };
 

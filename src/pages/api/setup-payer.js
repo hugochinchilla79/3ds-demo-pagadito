@@ -42,6 +42,7 @@ export default async function handler(req, res) {
           password: password,
         },
         withCredentials: true, // Include credentials (cookies) in the request
+        rejectUnauthorized: false, // Ignore SSL certificate errors
       });
 
       // Return the response data
