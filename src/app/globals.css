@@ -27,4 +27,5 @@ body {
 }
 
 /*Import fa icons npm package*/
-@import "~@fortawesome/fontawesome-free/css/all.css";
+@import '@fortawesome/fontawesome-free/css/all.css';
+

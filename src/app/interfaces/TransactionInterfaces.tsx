@@ -62,6 +62,11 @@ interface ConfigurationParams {
   url: string;
 }
 
+interface BridgeConfigurationParams {
+  clientId: string;
+  clientSecret: string;
+  url: string;
+}
 
 export type {
   ConsumerAuthenticationInformation,
@@ -72,5 +77,6 @@ export type {
   UserInformationData,
   Card,
   CardData,
-  ConfigurationParams
+  ConfigurationParams,
+  BridgeConfigurationParams
 };

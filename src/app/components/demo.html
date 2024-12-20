@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form
+        action="https://centinelapistag.cardinalcommerce.com/V1/Cruise/Collect'"
+        method="POST"
+        target="collectionIframe"
+        id="cardinal_collection_form"
+      >
+        <input type="hidden" value="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI4ODE0MThlZC0zZmMyLTRkNGItYjhhZi0wZDVkYjljOGUwMzgiLCJpYXQiOjE3MzQ1NzA3ODUsImlzcyI6IjVkZDgzYmYwMGU0MjNkMTQ5OGRjYmFjYSIsImV4cCI6MTczNDU3NDM4NSwiT3JnVW5pdElkIjoiNjNjNmNlZjg0Yzk3Y2Q2YmRhZTYwYWRlIiwiUmVmZXJlbmNlSWQiOiI5Y2IxYWFlMS0xNjhhLTQ0NzUtOTUyZC1iYzBlYWU3NTQzOWMifQ.gtcEXNjx_jrGhcBq6qoCkBwXBowaGAkcO4gPqdVCe8o" name="JWT" />
+      </form>
+      <iframe
+        id="cardinal_collection_iframe"
+        name="collectionIframe"
+        height="10"
+        width="10"
+      ></iframe>
+
+
+      <script>
+        document.getElementById("cardinal_collection_form").submit();
+      </script>
+</body>
+</html>

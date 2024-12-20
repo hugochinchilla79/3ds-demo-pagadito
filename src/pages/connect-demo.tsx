@@ -36,11 +36,11 @@ export default function ConnectDemo() {
     //You must create an instance of the Pagadito class to use the SDK
     let pagadito = new Pagadito(
       configurationParams.uid,
-      configurationParams.wsk,
-      true //this is just for sandbox, in production you must set it to false or simply remove it
+      configurationParams.wsk
     );
 
-    pagadito.setErn("TRS-" + Math.floor(Math.random() * 1000000));
+    //pagadito.setErn("TRS-" + Math.floor(Math.random() * 1000000));
+    pagadito.setErn("200002858720");
 
     transactionDetails.map((product, index) => {
       pagadito.addDetail(

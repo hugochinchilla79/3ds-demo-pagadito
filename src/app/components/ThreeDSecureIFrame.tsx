@@ -6,7 +6,7 @@ import React, { useEffect, useRef } from "react";
 const endpointEnvironments = {
   "sandbox": "https://centinelapistag.cardinalcommerce.com",
   "production": "https://centinelapi.cardinalcommerce.com"
-}
+} as any;
 
 const ThreeDSecureIFrame = (props: any) => {
   const formRef = useRef(null);
@@ -16,7 +16,7 @@ const ThreeDSecureIFrame = (props: any) => {
       console.log("Sending form...");
       formRef.current.submit();
 
-      const handleMessage = (event) => {
+      const handleMessage = (event: any) => {
         console.log(event.origin);
         console.log(endpointEnvironments[props.env]);
         console.log(props.env);

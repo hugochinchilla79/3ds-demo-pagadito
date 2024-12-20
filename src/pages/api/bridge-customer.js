@@ -4,16 +4,17 @@ import axios from "axios";
 import https from "https"; // Import the 'https' module
 
 export default async function handler(req, res) {
-  const { customerInformation, configuration } = req.body;
-  const endpoint = `${configuration.url}customer`;
-  const username = configuration.uid;
-  const password = configuration.wsk;
+  console.log(req.body);
+  const { configuration, tokenAuth, token } = req.body;
+  const endpoint = `${configuration.url}/api/v1/3ds/customer`;
 
-  console.log(customerInformation);
-  console.log(JSON.stringify(customerInformation));
+  console.log(configuration);
 
   // Set CORS headers
-  res.setHeader("Access-Control-Allow-Origin", process.env.NEXT_PUBLIC_API_DEMO_BASE_URL);
+  res.setHeader(
+    "Access-Control-Allow-Origin",
+    process.env.NEXT_PUBLIC_API_DEMO_BASE_URL
+  );
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Authorization, Content-Type");
   res.setHeader("Access-Control-Allow-Credentials", "true");
@@ -30,30 +31,34 @@ export default async function handler(req, res) {
       rejectUnauthorized: false, // Ignore SSL certificate errors
     }),
   });
-  
+
   // Handle POST requests
   if (req.method === "POST") {
     try {
-      // Make a POST request using Axios instance
-      const response = await axiosInstance.post(endpoint, customerInformation, {
-        auth: {
-          username: username,
-          password: password,
-        },
-        withCredentials: true, // Include credentials (cookies) in the request
-      });
-        res.status(response.status).json(response.data);
+      const response = await axiosInstance.post(
+        endpoint,
+        { token: token },
+        {
+          headers: {
+            Authorization: `Bearer ${tokenAuth}`,
+            "Content-Type": "application/json",
+          },
+          withCredentials: true, // Include credentials (cookies) in the request
+          rejectUnauthorized: false, // Ignore SSL certificate errors
+        }
+      );
+
       // Return the response data
+      //append the token to the response
+      response.data.token_auth = token;
       res.status(200).json(response.data);
     } catch (error) {
       console.error(error);
-      if(error.response){
+      if (error.response) {
         res.status(200).json(error.response.data);
-      }else {
+      } else {
         res.status(500).json({ error: "Internal server error" });
       }
-     
-      
     }
   } else {
     // Handle unsupported methods
