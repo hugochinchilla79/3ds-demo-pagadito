@@ -126,6 +126,8 @@ export default function Home() {
       })
       .then((response: any) => {
         console.log(response.data.data);
+        console.log("Repuesta de Customer");
+        console.log(response);
         const data = response.data.data;
 
         switch (data.response_code) {

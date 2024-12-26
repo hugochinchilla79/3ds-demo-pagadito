@@ -56,7 +56,7 @@ export default async function handler(req, res) {
       );
 
       const token = authResponse.data.token;
-      userInformationData.returnUrl = "http://localhost:3000/api/bridge-validate";
+      userInformationData.returnUrl = "http://localhost:3001/api/bridge-validate";
 
       const response = await axiosInstance.post(endpoint, userInformationData, {
         headers: {

@@ -38,7 +38,10 @@ export default async function handler(req, res) {
         }
       )
       .then((response) => {
+        console.log("Response from payment validation");
+        console.log(response);
         console.log(response.data);
+        
 
         // Assuming successful processing, redirect to a success page with query parameters
 
