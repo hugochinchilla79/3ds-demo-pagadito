@@ -27,6 +27,8 @@ NEXT_PUBLIC_API_SETUP_3DS="setup-payer"
 NEXT_PUBLIC_API_CUSTOMER="customer"
 NEXT_PUBLIC_API_DEMO_BASE_URL="http://localhost:3000"
 NEXT_PUBLIC_API_ENV="sandbox"
+NEXT_PUBLIC_API_CLIENT_ID="client_id"
+NEXT_PUBLIC_API_CLIENT_SECRET="cient_secret"
 ```
 
 Also, you need to set NEXT_PUBLIC_API_DEMO_BASE_URL to not have trouble with CORS, so if you run the demo in another port other than 3000 you MUST change this value.
